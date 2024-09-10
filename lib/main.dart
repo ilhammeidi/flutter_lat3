@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_latihan3/pages/medical.dart';
+import 'package:flutter_latihan3/pages/ticket_main.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,7 +16,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Nunito'
       ),
-      home: const Medical(),
+      home: const TicketMain()
     );
   }
 }

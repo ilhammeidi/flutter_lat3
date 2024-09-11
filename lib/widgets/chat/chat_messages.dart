@@ -56,19 +56,44 @@ class ChatBuble extends StatelessWidget {
                 const SizedBox(width: 4),
                 Text(date),
               ]),
+              // ListView(
+              //   shrinkWrap: true,
+              //   physics: const ClampingScrollPhysics(),
+              //   children: message.map((item) {
+              //     return Row(
+              //       mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+              //       children: [
+              //          Container(
+              //           padding: const EdgeInsets.all(4),
+              //           margin: const EdgeInsets.only(bottom: 4),
+              //           decoration: BoxDecoration(
+              //             color: isMe ? Colors.pink[50] : Colors.white,
+              //             borderRadius: BorderRadius.only(
+              //               topLeft: isMe ? const Radius.circular(10) : const Radius.circular(0),
+              //               topRight: isMe ? const Radius.circular(0) : const Radius.circular(10),
+              //               bottomLeft: const Radius.circular(10),
+              //               bottomRight: const Radius.circular(10),
+              //             ),
+              //           ),
+              //           child: Text(item)
+              //         ),
+              //       ],
+              //     );
+              //   }).toList(),
+              // )
               Column(
                 crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
                 children: message.map((item) {
                   return Container(
-                    padding: const EdgeInsets.all(4),
+                    padding: const EdgeInsets.all(8),
                     margin: const EdgeInsets.only(bottom: 4),
                     decoration: BoxDecoration(
                       color: isMe ? Colors.pink[50] : Colors.white,
                       borderRadius: BorderRadius.only(
-                        topLeft: isMe ? const Radius.circular(10) : const Radius.circular(0),
-                        topRight: isMe ? const Radius.circular(0) : const Radius.circular(10),
-                        bottomLeft: const Radius.circular(10),
-                        bottomRight: const Radius.circular(10),
+                        topLeft: isMe ? const Radius.circular(29) : const Radius.circular(0),
+                        topRight: isMe ? const Radius.circular(0) : const Radius.circular(20),
+                        bottomLeft: const Radius.circular(20),
+                        bottomRight: const Radius.circular(20),
                       ),
                     ),
                     child: Text(item)

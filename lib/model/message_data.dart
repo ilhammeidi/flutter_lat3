@@ -9,7 +9,7 @@ class MessageObj {
 final List<MessageObj> messageData = [
   MessageObj(
     message: [
-      'Lorem Ipsum Lorem Ipsum, Lorem Ipsum Lorem Ipsum, Lorem Ipsum Lorem Ipsum',
+      'Lorem Ipsum Lorem Ipsum, Lorem Ipsum Lorem Ipsum, Lorem Ipsum',
       'Dolor sit amet Dolor sit amet'
     ],
     date: '12:00',

@@ -36,7 +36,11 @@ class LilistPage extends StatelessWidget {
             ListView(
               shrinkWrap: true,
               physics: const ClampingScrollPhysics(),
-              children: msg.map((item) => Text(item)).toList()
+              children: msg.map((item) {
+                return Text(item, style: const TextStyle(
+                  backgroundColor: Colors.teal,
+                ));
+              }).toList()
             ),
           ]);
         },

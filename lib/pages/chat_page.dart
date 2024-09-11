@@ -5,8 +5,8 @@ import 'package:flutter_latihan3/widgets/chat/chat_messages.dart';
 
 /// ** Todo **
 /// - Reverse Row direction (v)
-/// - Nested List
-/// - Profile Page
+/// - Nested List (v)
+/// - Profile Page (v)
 /// - Chat add array function
 
 class ChatPage extends StatefulWidget {

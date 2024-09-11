@@ -50,11 +50,11 @@ class DoctorList extends StatelessWidget {
       ),
       const SliverToBoxAdapter(child: SizedBox(height: 8)),
       SliverGrid(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 300.0,
+          mainAxisExtent: 240,
           mainAxisSpacing: 8,
           crossAxisSpacing: 8,
-          childAspectRatio: 0.75
         ),
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {

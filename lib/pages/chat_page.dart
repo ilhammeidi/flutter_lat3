@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_latihan3/model/message_data.dart';
+import 'package:flutter_latihan3/pages/user_profile.dart';
 import 'package:flutter_latihan3/widgets/chat/chat_input.dart';
 import 'package:flutter_latihan3/widgets/chat/chat_messages.dart';
 
@@ -7,7 +8,7 @@ import 'package:flutter_latihan3/widgets/chat/chat_messages.dart';
 /// - Reverse Row direction (v)
 /// - Nested List (v)
 /// - Profile Page (v)
-/// - Chat add array function
+/// - Chat add array function (v)
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -39,12 +40,19 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         title: const Text('Jena', style: TextStyle(color: Colors.white),),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              radius: 20,
-              backgroundImage: NetworkImage('https://i.pravatar.cc/100?u=john'),
+            padding: const EdgeInsets.all(8.0),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => const UserProfile()
+                ));
+              },
+              child: const CircleAvatar(
+                radius: 20,
+                backgroundImage: NetworkImage('https://i.pravatar.cc/100?u=john'),
+              ),
             ),
           )
         ],

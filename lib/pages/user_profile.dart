@@ -12,6 +12,12 @@ class UserProfile extends StatelessWidget {
             pinned: true,
             expandedHeight: 160,
             backgroundColor: Colors.green,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.white, size: 24,),
+              onPressed: () {
+                Navigator.pop(context);
+              }
+            ),
             flexibleSpace: FlexibleSpaceBar(
               title: const Text('Sliver', style: TextStyle(color: Colors.white)),
               background: Image.network(

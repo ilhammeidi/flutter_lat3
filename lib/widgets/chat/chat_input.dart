@@ -1,7 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_latihan3/model/message_data.dart';
 
-class ChatInput extends StatelessWidget {
-  const ChatInput({super.key});
+class ChatInput extends StatefulWidget {
+  const ChatInput({super.key, required this.sendMsg});
+
+  final Function(MessageObj) sendMsg;
+
+  @override
+  State<ChatInput> createState() => _ChatInputState();
+}
+
+class _ChatInputState extends State<ChatInput> {
+  final textController = TextEditingController();
+
+  void handleSendMsg(String msgVal) {
+    /// Generate Message
+    final generateMessage = MessageObj(
+      message: [msgVal],
+      date: DateTime.now().toString(),
+      isMe: true
+    );
+
+    /// Send Message
+    widget.sendMsg(generateMessage);
+
+    /// Clear Textfield
+    textController.clear();
+  }
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +47,7 @@ class ChatInput extends StatelessWidget {
       child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
         Expanded(
           child: TextField(
+            controller: textController,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -29,7 +61,9 @@ class ChatInput extends StatelessWidget {
         ),
         const SizedBox(width: 8),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            handleSendMsg(textController.text);
+          },
           icon: const Icon(Icons.send, size: 24, color: Colors.lime,),
           style: IconButton.styleFrom(
             backgroundColor: Colors.black

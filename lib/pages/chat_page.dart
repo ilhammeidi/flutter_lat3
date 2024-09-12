@@ -17,6 +17,22 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  final List<MessageObj> initMsg = messageData;
+  final _scrollController = ScrollController();
+
+  void _sendMessage(MessageObj message){
+    setState(() {
+      initMsg.add(message);
+    });
+
+    /// Scroll to bottom
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent + kToolbarHeight + kBottomNavigationBarHeight + 32,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.fastOutSlowIn
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +51,9 @@ class _ChatPageState extends State<ChatPage> {
       ),
       body: Column(children: [
         Expanded(
-          child: ChatMessages(chatMessages: messageData,)
+          child: ChatMessages(chatMessages: initMsg, scrollCtrl: _scrollController)
         ),
-        const ChatInput()
+        ChatInput(sendMsg: _sendMessage)
       ],),
     );
   }

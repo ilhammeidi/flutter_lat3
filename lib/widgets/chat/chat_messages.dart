@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_latihan3/model/message_data.dart';
 
 class ChatMessages extends StatelessWidget {
-  const ChatMessages({super.key, required this.chatMessages});
+  const ChatMessages({super.key, required this.chatMessages, required this.scrollCtrl});
 
   final List<MessageObj> chatMessages;
+  final ScrollController scrollCtrl;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.yellow[100],
       child: ListView.builder(
+        controller: scrollCtrl,
         itemCount: chatMessages.length,
         itemBuilder: (context, index) {
           return Padding(padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),

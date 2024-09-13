@@ -52,7 +52,6 @@ class _NewsPageState extends State<NewsPage> {
   }
 
   void _changePage(int idx) {
-    debugPrint(idx.toString());
     setState(() {
       _index = idx;
     });

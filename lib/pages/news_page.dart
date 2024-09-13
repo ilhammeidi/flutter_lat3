@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_latihan3/model/news_data.dart';
+import 'package:flutter_latihan3/widgets/news/fancy_bottom_nav.dart';
 import 'package:flutter_latihan3/widgets/news/news_list.dart';
 import 'package:flutter_latihan3/widgets/news/search_header.dart';
 import 'package:flutter_latihan3/widgets/news/tag_filter.dart';
@@ -14,6 +15,7 @@ class NewsPage extends StatefulWidget {
 class _NewsPageState extends State<NewsPage> {
   String _keyword = '';
   String _tag = 'All';
+  int _index = 0;
 
   // final List allNewsData = newsData;
   List _filteredItems = [];
@@ -49,6 +51,13 @@ class _NewsPageState extends State<NewsPage> {
     });
   }
 
+  void _changePage(int idx) {
+    debugPrint(idx.toString());
+    setState(() {
+      _index = idx;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +73,12 @@ class _NewsPageState extends State<NewsPage> {
         Expanded(
           child: NewsList(newsList: _filteredItems)
         )
-      ])
+      ]),
+      extendBody: true,
+      bottomNavigationBar: FancyBottomNav(
+        onSwitchPage: _changePage,
+        pageIndex: _index,
+      ),
     );
   }
 }

@@ -6,27 +6,56 @@ class UserProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: const Text('daada'),
+        backgroundColor: Colors.transparent,
+      ),
+      backgroundColor: Colors.grey,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            pinned: true,
-            expandedHeight: 160,
-            backgroundColor: Colors.green,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.white, size: 24,),
-              onPressed: () {
-                Navigator.pop(context);
-              }
-            ),
+            pinned: false,
+            floating: false,
+            expandedHeight: 400,
+            backgroundColor: Colors.brown,
+            centerTitle: false,
+            // title: const Text('Sliver', style: TextStyle(color: Colors.white)),
+            automaticallyImplyLeading: false,
+            // leading: IconButton(
+            //   icon: const Icon(Icons.arrow_back, color: Colors.white, size: 24,),
+            //   onPressed: () {
+            //     Navigator.pop(context);
+            //   }
+            // ),
             flexibleSpace: FlexibleSpaceBar(
-              title: const Text('Sliver', style: TextStyle(color: Colors.white)),
               background: Image.network(
                 'https://picsum.photos/300/300/?random=hotel_london',
                 fit: BoxFit.cover,
                 color: Colors.black.withOpacity(0.5),
                 colorBlendMode: BlendMode.multiply,
               ),
+
             ),
+            bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(120),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                height: 120,
+                decoration: const BoxDecoration(
+                  color: Colors.brown,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  )
+                ),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text('Title', style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white),),
+                  Text('Lorem ipsum dolor sit amet', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white),),
+                ],),
+              ),
+            )
           ),
           SliverToBoxAdapter(
             child: Column(

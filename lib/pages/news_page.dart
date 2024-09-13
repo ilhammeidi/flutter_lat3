@@ -26,11 +26,10 @@ class _NewsPageState extends State<NewsPage> {
 
   void _filterItem() {
     setState(() {
-      String tagVal = _tag != 'all' ? _tag : '';
       _filteredItems = newsData
         .where(
           (item) => item.title.toLowerCase().contains(_keyword)
-          && item.category.contains(tagVal)
+          && (_tag != 'All' ? item.category.contains(_tag) : true)
         ).toList();
     });
   }
@@ -55,7 +54,10 @@ class _NewsPageState extends State<NewsPage> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
-        child: SearchHeader(onSelect: _handleSearch)
+        child: SearchHeader(
+          onSelect: _handleSearch,
+          onChange: _handleSearch,
+        )
       ),
       body: Column(children: [
         TagFilter(onSelect: _handleTag),

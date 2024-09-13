@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class SearchHeader extends StatelessWidget {
-  const SearchHeader({super.key, required this.onSelect});
+  const SearchHeader({super.key, required this.onSelect, required this.onChange});
 
   final void Function(String) onSelect;
+  final void Function(String) onChange;
 
   static final List<String> _kOptions = [
     'scelerisque',
@@ -43,7 +44,7 @@ class SearchHeader extends StatelessWidget {
             focusNode: focusNode,
             onFieldSubmitted: (String value) {
               onFieldSubmitted();
-              debugPrint('You just typed a new entry  $value');
+              onChange(value);
             },
             decoration: InputDecoration(
               filled: true,

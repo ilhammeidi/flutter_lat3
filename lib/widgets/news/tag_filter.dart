@@ -37,9 +37,12 @@ class _TagFilterState extends State<TagFilter> {
       ),
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: tagList.map((item){
+        children: tagList.asMap().entries.map((entry){
+          String item = entry.value;
+          int index = entry.key;
+
           return Padding(
-            padding: const EdgeInsets.all(4.0),
+            padding: EdgeInsets.only(left: index == 0 ? 16 : 8),
             child: ChoiceChip(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),

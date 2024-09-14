@@ -41,15 +41,19 @@ class NewsBannerHeaderaDelegate extends SliverPersistentHeaderDelegate {
               ),
             ),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              AnimatedScale(
-                scale: showItem ? 1 : 0,
+              AnimatedOpacity(
+                opacity: showItem ? 1 : 0.2,
                 duration: const Duration(milliseconds: 100),
-                child: Chip(
-                  label: const Text('Sport', style: TextStyle(color: Colors.white)),
-                  backgroundColor: Theme.of(context).primaryColor,
-                  side: BorderSide.none,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
-                )
+                child: AnimatedScale(
+                  scale: showItem ? 1 : 0.5,
+                  duration: const Duration(milliseconds: 100),
+                  child: Chip(
+                    label: const Text('Sport', style: TextStyle(color: Colors.white)),
+                    backgroundColor: Theme.of(context).primaryColor,
+                    side: BorderSide.none,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+                  )
+                ),
               ),
               const SizedBox(height: 16,),
               AnimatedOpacity(

@@ -21,6 +21,7 @@ flutter:
   assets:
     - assets/medical/
     - assets/ticketing/
+    - assets/news/
   
   fonts:
     - family: Nunito

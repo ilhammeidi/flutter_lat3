@@ -27,6 +27,7 @@ class _TicketingHeaderState extends State<TicketingHeader> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [

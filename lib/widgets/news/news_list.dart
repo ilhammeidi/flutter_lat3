@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_latihan3/model/news_data.dart';
+import 'package:flutter_latihan3/pages/news_detail.dart';
 import 'package:flutter_latihan3/widgets/news/news_card.dart';
 
 class NewsList extends StatelessWidget {
@@ -15,7 +16,14 @@ class NewsList extends StatelessWidget {
         NewsObj news = newsList[index];
         return Padding(
           padding: const EdgeInsets.all(8.0),
-          child: NewsCard(category: news.category, title: news.title, subtitle: news.description),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => const NewsDetail()
+              ));
+            },
+            child: NewsCard(category: news.category, title: news.title, subtitle: news.description),
+          )
         );
     }));
   }

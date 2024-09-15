@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_latihan3/pages/example_slideshow.dart';
 import 'package:flutter_latihan3/pages/news_detail.dart';
 import 'package:flutter_latihan3/pages/news_page.dart';
 
@@ -16,7 +17,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Nunito'
       ),
-      home: const NewsDetail()
+      home: Slideshow()
     );
   }
 }
